@@ -1,0 +1,99 @@
+<header>
+    <div class="container-na">
+        
+        <div class="container-nb">
+            <!-- Logo -->
+            <a href="/" class="nb-logo"><img src="/imgs/logo_mt.avif" alt="Logo MTM" /></a>
+            <!-- Menu Desktop (Pantallas > 576px) -->        
+            @if (!isMobile()) {            
+            <nav>
+                <a href="" routerLink="." fragment="inicio" class="px-3 py-2 nav-option">Inicio</a>
+                <a href="" routerLink="." fragment="generos" class="px-3 py-2 nav-option">Géneros</a>
+                <a href="" routerLink="." fragment="sobre-miguel" class="px-3 py-2 nav-option">Miguel Torres</a>
+                <a href="" routerLink="." fragment="preguntas" class="px-3 py-2 nav-option">Preguntas</a>
+            </nav>
+            <a href="" routerLink="." fragment="contacto" class="btn-contacto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-music w-4 h-4" aria-hidden="true">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                </svg>            
+                Escríbeme
+            </a>
+            }
+            <!-- Botón Hamburguesa / Cerrar (Pantallas <= 576px) -->
+            @else {
+            <button type="button" (click)="toggleMenu($event)" aria-label="Toggle navigation">
+                @if (!isMenuOpen()) {
+                <!-- Icono Hamburguesa -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-menu w-6 h-6" aria-hidden="true">
+                    <path d="M4 5h16"></path>
+                    <path d="M4 12h16"></path>
+                    <path d="M4 19h16"></path>
+                </svg>
+                } @else {
+                <!-- Icono Cerrar -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-x w-6 h-6" aria-hidden="true">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+                }
+            </button>
+            }            
+        </div>
+
+        <!-- Botón Contacto Desktop -->
+        <!-- <div class="contacto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-music w-4 h-4" aria-hidden="true">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            <span>Escríbeme</span>
+        </div> -->
+
+
+
+    </div>
+
+    <!-- Menú desplegable Mobile (container-nc) -->
+    @if (isMobile() && isMenuOpen()) {
+    <div class="container-nc">
+        <nav>
+            <a href="" routerLink="." fragment="inicio" class="px-3 py-2 nav-option" (click)="closeMenu()">Inicio</a>
+            <a href="" routerLink="." fragment="generos" class="px-3 py-2 nav-option" (click)="closeMenu()">Géneros</a>
+            <a href="" routerLink="." fragment="sobre-miguel" class="px-3 py-2 nav-option" (click)="closeMenu()">Miguel Torres</a>
+            <a href="" routerLink="." fragment="preguntas" class="px-3 py-2 nav-option" (click)="closeMenu()">Preguntas</a>
+        </nav>
+
+        <!-- <div class="contacto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-music w-4 h-4" aria-hidden="true">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            <span>Escríbeme</span>
+        </div> -->
+        <a href="" routerLink="." fragment="contacto" class="btn-contacto" (click)="closeMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-music w-4 h-4" aria-hidden="true">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>            
+            Escríbeme
+        </a>        
+    </div>
+    }
+</header>

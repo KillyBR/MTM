@@ -1,12 +1,20 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
+// 1. Importar withFetch
+import { provideHttpClient, withFetch } from '@angular/common/http';
+
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), provideClientHydration(withEventReplay())
-  ]
+    providers: [
+        provideBrowserGlobalErrorListeners(),
+        provideRouter(routes,
+            withInMemoryScrolling({ anchorScrolling: 'enabled' })
+        ),
+        provideClientHydration(withEventReplay()),
+        // 2. Pasar withFetch() aquí
+        provideHttpClient(withFetch())
+    ]
 };
